@@ -11,7 +11,35 @@
   },
   "keywords": [],
   "sideEffects": false,
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "tsup": {
+    "entry": ["src/index.ts"],
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "target": "es5",
+    "dts": true,
+    "minify": true,
+    "treeshake": true,
+    "format": ["cjs", "esm"]
+  },
   "files": [
     "dist"
   ],
